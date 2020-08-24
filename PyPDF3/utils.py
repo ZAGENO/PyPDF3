@@ -235,7 +235,7 @@ else:
         if type(s) == bytes:
             return s
         else:
-            r = s.encode('latin-1')
+            r = s.encode('latin-1', os.environ.get('PYPDF_DEFAULT_ENCODE_ERRORS', 'strict'))
             if len(s) < 2:
                 bc[s] = r
             return r
